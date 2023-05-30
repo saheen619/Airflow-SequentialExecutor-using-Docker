@@ -10,7 +10,9 @@ Workflow DAG:
 
 ### Sequential Executor in Apache Airflow   
 
-The Sequential Executor is the default executor in Airflow. It is a local executor, where tasks are run on the same machine as the scheduler. Not very scalable kind of executor and not used for production. The Sequential Executor uses SQLite as the default metadata database.
+The Sequential Executor is the default executor in Airflow. It is a local executor, where tasks are run on the same machine as the scheduler. Not very scalable kind of executor and not used for production. The Sequential Executor uses SQLite as the default metadata database.    
+
+Even though a sequential executor is also a local executor, it is the only executor that can be used with SQLite since SQLite does not support multiple connections. This executor will only run one task instance at a time. While using a Local Executor, we could connect to other databases, where parallel connections are possible, and thus a local executor is comparitively more scalable.
 
 ### How to run   
 
